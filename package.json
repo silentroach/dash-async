@@ -1,0 +1,25 @@
+{
+  "name": "dash-async",
+  "version": "1.0.0",
+  "description": "Dash docset generator for Async.js",
+  "main": "index.js",
+  "author": "Igor Kalashnikov <igor.kalashnikov@me.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src"
+  },
+  "devDependencies": {
+    "async": "^1.5.1",
+    "chalk": "^1.1.1",
+    "commonmark": "^0.23.0",
+    "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "request": "^2.67.0",
+    "sqlite3": "^3.1.1",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.10"
+  },
+  "dependencies": {
+    "highlight.js": "^9.1.0"
+  }
+}
