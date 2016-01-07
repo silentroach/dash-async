@@ -10,6 +10,7 @@ module.exports = (indexFilePath, ast, callback) => {
 		`<html>
 <head>
 	<link href="bundle.css" rel="stylesheet" />
+	<title>Async.js documentation</title>
 </head>
 <body>
 	${content}
