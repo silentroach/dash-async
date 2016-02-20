@@ -2,3 +2,4 @@
 
 	$ npm i
 	$ npm start
+	$ tar --exclude='.DS_Store' -cvzf async.tgz asyncjs.docset

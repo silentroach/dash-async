@@ -31,15 +31,15 @@ async.waterfall([
 	},
 	(tag, data, callback) => {
 		console.log(chalk.green('Building AST...'));
-		callback(null, tag, require('./04-ast')(data));
+		callback(null, tag, require('./03-ast')(data));
 	},
 	(tag, ast, callback) => {
 		console.log(chalk.green('Parsing table of contents...'));
-		callback(null, tag, ast, require('./05-toc')(ast));
+		callback(null, tag, ast, require('./04-toc')(ast));
 	},
 	(tag, ast, toc, callback) => {
 		console.log(chalk.green('Building index database...'));
-		require('./06-index')(databasePath, toc, (err) => {
+		require('./05-index')(databasePath, toc, (err) => {
 			if (err) {
 				callback(err);
 				return;
@@ -50,15 +50,15 @@ async.waterfall([
 	},
 	(tag, ast, callback) => {
 		console.log(chalk.green('Preprocessing AST...'));
-		callback(null, require('./07-preprocess')(tag, ast));
+		callback(null, tag, require('./06-preprocess')(tag, ast));
 	},
-	(ast, callback) => {
+	(tag, ast, callback) => {
 		console.log(chalk.green('Render...'));
-		require('./08-render')(indexFilePath, ast, callback);
+		require('./07-render')(indexFilePath, tag, ast, callback);
 	},
 	callback => {
 		console.log(chalk.green('Compile js/css...'));
-		require('./09-webpack')(documentsPath, callback);
+		require('./08-webpack')(documentsPath, callback);
 	}
 ], (err) => {
 	if (err) {

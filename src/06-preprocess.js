@@ -29,6 +29,7 @@ module.exports = (tag, ast) => {
 			&& 'Image' === node.firstChild.type
 		) {
 			node.unlink();
+			continue;
 		}
 	}
 

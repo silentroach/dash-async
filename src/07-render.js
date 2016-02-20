@@ -2,12 +2,14 @@ const fs = require('fs');
 
 const commonmark = require('commonmark');
 
-module.exports = (indexFilePath, ast, callback) => {
-	const content = new commonmark.HtmlRenderer().render(ast);
+module.exports = (indexFilePath, tag, ast, callback) => {
+	const content = new commonmark.HtmlRenderer({
+		smart: false
+	}).render(ast);
 
 	fs.writeFile(
 		indexFilePath,
-		`<html>
+		`<html><!-- Online page at https://github.com/caolan/async/blob/${tag}/README.md -->
 <head>
 	<link href="bundle.css" rel="stylesheet" />
 	<title>Async.js documentation</title>
